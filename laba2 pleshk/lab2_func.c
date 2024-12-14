@@ -139,3 +139,47 @@ void count_duplicates(int *arr, int arr_size) {
     free(arr_local);
     free(arr_count);
 }
+
+//-----------------------двумерный массив ---------------------
+//-----------------------двумерный массив ---------------------
+//-----------------------двумерный массив ---------------------
+//-----------------------двумерный массив ---------------------
+//-----------------------двумерный массив ---------------------
+
+void count_negative (int **arr, int n, int m)
+{
+    int count = 0;
+    int number = 0;
+    printf("Введите ноер строки: \n");
+    get_int(&number, 1, n);
+    for (int i = 0; i < m; i++)
+    {
+        if (arr[number - 1][i] < 0)
+            count++;
+    }
+    printf("Количество отрицательных чисел: %d\n", count);
+    count = 0;
+}
+
+void arithmetic_mean (int **arr, int n, int m)
+{
+    int count = 0;
+    double result = 0;
+    int number = 0;
+    printf("Введите ноер строки: \n");
+    get_int(&number, 1, n);
+    for (int i = 0; i < m; i++)
+    {
+        if (arr[number - 1][i] > 0){
+            result += arr[number - 1][i];
+            count++;
+        }
+    }
+    result /= (double) count;
+    printf("Среднее арифметическое: %lf\n", result);
+}
+
+void min_number (int **arr, int n, int m)
+{
+    
+}

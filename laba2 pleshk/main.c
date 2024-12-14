@@ -42,6 +42,17 @@ int main(void) {
                 break;
             case 9:
                 count_duplicates(arr_first, arr_size);
+            case 10:
+                count_negative (arr_second, arr_size_x, arr_size_y);
+                break;
+            case 11:
+                arithmetic_mean (arr_second, arr_size_x, arr_size_y);
+                break;
+            case 12:
+                min_number (arr_second, arr_size_x, arr_size_y);
+                break;
+            case 13:
+                
                 break;
             case 15:
                 system("clear");
