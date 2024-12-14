@@ -85,26 +85,57 @@ void additional_arr(int *arr, int arr_size)
     free(arr_addit);
 }
 
-
-void remove_duplicates(int **arr, int *arr_size) {
-    int *new_arr = malloc(*arr_size * sizeof(int));
+void remove_duplicates(int *arr, int arr_size) {
+    int *new_arr = malloc(arr_size * sizeof(int));
     int new_arr_size = 0;
-    for (int i = 0; i < *arr_size; i++) {
+    for (int i = 0; i < arr_size; i++) {
         int flag = 0;
         for (int j = 0; j < new_arr_size; j++) {
-            if ((*arr)[i] == new_arr[j]) {
+            if (arr[i] == new_arr[j]) {
                 flag = 1;
                 break;
             }
         }
         if (!flag) {
-            new_arr[new_arr_size++] = (*arr)[i];
+            new_arr[new_arr_size++] = arr[i];
         }
     }
-    for (int i = 0; i < new_arr_size; i++) {
-        (*arr)[i] = new_arr[i];
-    }
-    *arr_size = new_arr_size;
     new_arr = realloc(new_arr, new_arr_size * sizeof(int));
+    arr_first_print(new_arr, new_arr_size);
+    free(new_arr);
 }
 
+void count_duplicates(int *arr, int arr_size) {
+    int *arr_checked = malloc(arr_size * sizeof(int));
+    int *arr_local = malloc(arr_size * sizeof(int));
+    int *arr_count = malloc(arr_size * sizeof(int));
+    int count = 0;
+    for (int i = 0; i < arr_size; i++) {
+        if (arr_checked[i])
+            continue;
+        int element = arr[i];
+        int frequency = 1;
+        for (int j = i + 1; j < arr_size; j++) {
+            if (arr[j] == element) {
+                frequency++;
+                arr_checked[j] = 1;
+            }
+        }
+        if (frequency > 1) {
+            arr_local[count] = element;
+            arr_count[count] = frequency;
+            count++;
+        }
+    }
+    printf("\nПовторяющиеся элементы и частота их повторений:\n");
+    for (int i = 0; i < count; i++) {
+        printf("Элемент: %d, частота повторения: %d\n", arr_local[i], arr_count[i]);
+    }
+
+    if (count == 0) {
+        printf("Повторяющиеся элементы не найдены.\n");
+    }
+    free(arr_checked);
+    free(arr_local);
+    free(arr_count);
+}

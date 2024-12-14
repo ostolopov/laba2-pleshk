@@ -115,7 +115,7 @@ void arr_second_print (int **arr, int n, int m)
     }
 }
 
-
+/*
 void delete_element(int *arr_size, int **arr, int element_id)
 {
     for (int i = 0; i < *arr_size - 1; i++)
@@ -130,29 +130,5 @@ void delete_element(int *arr_size, int **arr, int element_id)
         }
     }
     *arr_size -= 1;
-}
-
-
-/*
-void remove_duplicates(int **arr, int *arr_size) {
-    int *new_arr = malloc(*arr_size * sizeof(int));
-    int new_arr_size = 0;
-    for (int i = 0; i < *arr_size; i++) {
-        int flag = 0;
-        for (int j = 0; j < new_arr_size; j++) {
-            if ((*arr)[i] == new_arr[j]) {
-                flag = 1;
-                break;
-            }
-        }
-        if (!flag) {
-            new_arr[new_arr_size++] = (*arr)[i];
-        }
-    }
-    for (int i = 0; i < new_arr_size; i++) {
-        (*arr)[i] = new_arr[i];
-    }
-    *arr_size = new_arr_size;
-    new_arr = realloc(new_arr, new_arr_size * sizeof(int));
 }
 */
