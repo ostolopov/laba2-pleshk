@@ -22,6 +22,7 @@ int main(void) {
                 break;
             case 2:
                 arr_second_inicialization(&arr_second, &arr_size_x, &arr_size_y);
+                break;
             case 3:
                 arr_first_print(arr_first, arr_size);
                 break;
