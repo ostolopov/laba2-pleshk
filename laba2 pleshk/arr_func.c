@@ -115,31 +115,21 @@ void arr_second_print (int **arr, int n, int m)
     }
 }
 
-int is_prime(int num) {
-    if (num <= 1) {
+int is_prime(int num)
+{
+    if (num < 0)
+    {
+        num *= -1;
+    }
+    if (num <= 1)
+    {
         return 0;
     }
-    for (int i = 2; i * i <= num; i++) {
+    for (int i = 2; i * i <= num; i++)
+    {
         if (num % i == 0) {
             return 0;
         }
     }
     return 1;
 }
-/*
-void delete_element(int *arr_size, int **arr, int element_id)
-{
-    for (int i = 0; i < *arr_size - 1; i++)
-    {
-        if (element_id > i)
-        {
-            (*arr)[i] = (*arr)[i];
-        }
-        else
-        {
-            (*arr)[i] = (*arr)[i+1];
-        }
-    }
-    *arr_size -= 1;
-}
-*/
