@@ -12,5 +12,6 @@ void arr_second_free(int **arr, int n);
 void arr_first_print (int *arr, int arr_size);
 void arr_second_print (int **arr, int n, int m);
 void delete_element(int *arr_size, int **arr, int element_id);
+int is_prime(int num);
 
 #endif

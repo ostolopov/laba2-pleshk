@@ -212,27 +212,16 @@ void max_index (int **arr, int n, int m)
     printf("Номер маскимального значения в %d строке: %d\n\n", number, max_index);
 }
 
-void prime_number_count (int **arr, int n, int m)
-{
+void prime_number_count(int **arr, int n, int m) {
     int count = 0;
     int number = 0;
     printf("Введите номер строки: \n");
     get_int(&number, 1, n);
-    for (int j = 0; j < m; j++)
-    {
+    for (int j = 0; j < m; j++) {
         int num = arr[number - 1][j];
-        if (num < 0)
-            num *= -1;
-        if (num <= 1)
-            break;
-        for (int i = 2; i * i <= num; i++)
-        {
-            if (num % i == 0)
-            {
-                break;
-            }
+        if (is_prime(num)) {
+            count++;
         }
-        count++;
     }
     printf("Количество простых чисел в %d строке: %d\n\n", number, count);
 }
