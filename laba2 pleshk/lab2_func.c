@@ -221,10 +221,10 @@ void prime_number_count (int **arr, int n, int m)
     for (int j = 0; j < m; j++)
     {
         int num = arr[number - 1][j];
+        if (num < 0)
+            num *= -1;
         if (num <= 1)
-        {
             break;
-        }
         for (int i = 2; i * i <= num; i++)
         {
             if (num % i == 0)
