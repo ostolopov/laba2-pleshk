@@ -16,5 +16,7 @@ void count_duplicates(int *arr, int arr_size);
 void count_negative (int **arr, int n, int m);
 void arithmetic_mean (int **arr,int n, int m);
 void min_number (int **arr, int n, int m);
+void max_index (int **arr, int n, int m);
+void prime_number_count (int **arr, int n, int m);
 
 #endif
