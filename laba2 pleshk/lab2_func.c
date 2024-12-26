@@ -146,85 +146,130 @@ void count_duplicates(int *arr, int arr_size) {
 //-----------------------двумерный массив ---------------------
 //-----------------------двумерный массив ---------------------
 
-void count_negative (int **arr, int n, int m)
+void count_negative(int **arr, int n, int m)
 {
-    int count = 0;
-    int number = 0;
-    printf("Введите номер строки: \n");
-    get_int(&number, 1, n);
-    for (int i = 0; i < m; i++)
+    int *b = malloc(n * sizeof(int));
+    for (int j = 0; j < n; j++)
     {
-        if (arr[number - 1][i] < 0)
-            count++;
+        int count = 0;
+        for (int i = 0; i < m; i++)
+        {
+            if (arr[j][i] > 0)
+            {
+                count++;
+            }
+        }
+        b[j] = count;
     }
-    printf("Количество отрицательных чисел в %d строке: %d\n\n", number, count);
-    count = 0;
+    for (int i = 0; i < n; i++)
+    {
+        printf("%d ", b[i]);
+    }
+    printf("\n");
+    free(b);
 }
 
-void arithmetic_mean (int **arr, int n, int m)
-{
-    int count = 0;
-    double result = 0;
-    int number = 0;
-    printf("Введите номер строки: \n");
-    get_int(&number, 1, n);
-    for (int i = 0; i < m; i++)
+void arithmetic_mean(int **arr, int n, int m) {
+    double *b = malloc(m * sizeof(double));
+    
+    for (int j = 0; j < n; j++)
     {
-        if (arr[number - 1][i] > 0){
-            result += arr[number - 1][i];
-            count++;
+        int count = 0;
+        double sum = 0;
+        for (int i = 0; i < m; i++)
+        {
+            if (arr[j][i] > 0)
+            {
+                sum += arr[j][i];
+                count++;
+            }
+        }
+        if (count > 0)
+        {
+            b[j] = sum / count;
+        }
+        else
+        {
+            b[j] = 0;
         }
     }
-    result /= (double) count;
-    printf("Среднее арифметическое для %d строки: %lf\n\n", number, result);
+    for (int i = 0; i < m; i++)
+    {
+        printf("%.2f ", b[i]);
+    }
+    printf("\n");
+    free(b);
 }
 
 void min_number (int **arr, int n, int m)
 {
-    int number = 0;
-    printf("Введите номер строки: \n");
-    get_int(&number, 1, n);
-    int min = arr[number - 1][0];
-    for (int i = 0; i < m; i++)
+    int *b = malloc(n * sizeof(int));
+    for (int j = 0; j < n; j++)
     {
-        if (arr[number - 1][i] < min)
+        int min = arr[j][0];
+        for (int i = 0; i < m; i++)
         {
-            min = arr[number - 1][i];
+            if (arr[j][i] < min)
+            {
+                min = arr[j][i];
+            }
         }
+        b[j] = min;
     }
-    printf("Минимальное значение в %d строке: %d\n\n", number, min);
+    
+    for (int i = 0; i < n; i++)
+    {
+        printf("%d ", b[i]);
+    }
+    printf("\n");
+    free(b);
 }
 
 void max_index (int **arr, int n, int m)
 {
-    int max_index = 0;
-    int number = 0;
-    printf("Введите номер строки: \n");
-    get_int(&number, 1, n);
-    int max = arr[number - 1][0];
-    for (int i = 0; i < m; i++)
+    int *b = malloc(n * sizeof(int));
+    for (int j = 0; j < n; j++)
     {
-        if (arr[number - 1][i] > max)
+        int max_index = 0;
+        int max = arr[j][0];
+        for (int i = 0; i < m; i++)
         {
-            max_index = i;
+            if (arr[j][i] > max)
+            {
+                max_index = i;
+            }
         }
+        b[j] = max_index + 1;
     }
-    printf("Номер маскимального значения в %d строке: %d\n\n", number, max_index);
+    
+    for (int i = 0; i < n; i++)
+    {
+        printf("%d ", b[i]);
+    }
+    printf("\n");
+    free(b);
 }
 
 void prime_number_count(int **arr, int n, int m)
 {
-    int count = 0;
-    int number = 0;
-    printf("Введите номер строки: \n");
-    get_int(&number, 1, n);
-    for (int j = 0; j < m; j++)
+    int *b = malloc(n * sizeof(int));
+    for (int j = 0; j < n; j++)
     {
-        int num = arr[number - 1][j];
-        if (is_prime(num))
+        int count = 0;
+        for (int i = 0; i < m; i++)
         {
-            count++;
+            int num = arr[j][i];
+            if (is_prime(num) == 1)
+            {
+                count++;
+            }
         }
+        b[j] = count;
     }
-    printf("Количество простых чисел в %d строке: %d\n\n", number, count);
+    for (int i = 0; i < n; i++)
+    {
+        printf("%d ", b[i]);
+    }
+    printf("\n");
+    free(b);
 }
